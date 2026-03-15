@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guerreiros Medievais</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topo">
+    <h1>Guerreiros Medievais</h1>
+    <p>Passe o mouse sobre um guerreiro para ver sua energia e animações.</p>
+  </header>
+
+  <main class="container">
+    <section class="grid-guerreiros">
+      <!-- Guerreiro 1 -->
+      <article class="guerreiro" data-nome="Alaric" data-poder="90">
+        <div class="avatar">
+          <div class="cabeca">
+            <div class="cabelo cabelo-longo"></div>
+            <div class="capacete"></div>
+          </div>
+          <div class="tronco armadura-pesada"></div>
+          <div class="braco-esq"></div>
+          <div class="braco-dir braco-espada"></div>
+          <div class="pernas"></div>
+        </div>
+        <div class="info">
+          <h2>Alaric</h2>
+          <p>Espadachim do Norte</p>
+          <div class="nivel">
+            Nível de poder: <span>90</span>
+          </div>
+          <div class="barra-energia">
+            <div class="preenchimento" style="--energia: 90;"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Guerreiro 2 -->
+      <article class="guerreiro" data-nome="Seraphina" data-poder="80">
+        <div class="avatar">
+          <div class="cabeca">
+            <div class="cabelo cabelo-tranca"></div>
+            <div class="capacete"></div>
+          </div>
+          <div class="tronco armadura-leve"></div>
+          <div class="braco-esq"></div>
+          <div class="braco-dir braco-espada"></div>
+          <div class="pernas"></div>
+        </div>
+        <div class="info">
+          <h2>Seraphina</h2>
+          <p>Guardião das Chamas</p>
+          <div class="nivel">
+            Nível de poder: <span>80</span>
+          </div>
+          <div class="barra-energia">
+            <div class="preenchimento" style="--energia: 80;"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Guerreiro 3 -->
+      <article class="guerreiro" data-nome="Dorn" data-poder="70">
+        <div class="avatar">
+          <div class="cabeca">
+            <div class="cabelo cabelo-curto"></div>
+            <div class="capacete"></div>
+          </div>
+          <div class="tronco armadura-pesada"></div>
+          <div class="braco-esq"></div>
+          <div class="braco-dir braco-espada"></div>
+          <div class="pernas"></div>
+        </div>
+        <div class="info">
+          <h2>Dorn</h2>
+          <p>Escudo de Ferro</p>
+          <div class="nivel">
+            Nível de poder: <span>70</span>
+          </div>
+          <div class="barra-energia">
+            <div class="preenchimento" style="--energia: 70;"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Guerreiro 4 -->
+      <article class="guerreiro" data-nome="Lyra" data-poder="85">
+        <div class="avatar">
+          <div class="cabeca">
+            <div class="cabelo cabelo-rabo"></div>
+            <div class="capacete"></div>
+          </div>
+          <div class="tronco armadura-couro"></div>
+          <div class="braco-esq"></div>
+          <div class="braco-dir braco-espada"></div>
+          <div class="pernas"></div>
+        </div>
+        <div class="info">
+          <h2>Lyra</h2>
+          <p>Lâmina Sombria</p>
+          <div class="nivel">
+            Nível de poder: <span>85</span>
+          </div>
+          <div class="barra-energia">
+            <div class="preenchimento" style="--energia: 85;"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Guerreiro 5 -->
+      <article class="guerreiro" data-nome="Thorin" data-poder="95">
+        <div class="avatar">
+          <div class="cabeca">
+            <div class="cabelo cabelo-selvagem"></div>
+            <div class="capacete"></div>
+          </div>
+          <div class="tronco armadura-pesada"></div>
+          <div class="braco-esq"></div>
+          <div class="braco-dir braco-espada"></div>
+          <div class="pernas"></div>
+        </div>
+        <div class="info">
+          <h2>Thorin</h2>
+          <p>Martelo do Trovão</p>
+          <div class="nivel">
+            Nível de poder: <span>95</span>
+          </div>
+          <div class="barra-energia">
+            <div class="preenchimento" style="--energia: 95;"></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="detalhes">
+      <h2>Guerreiro selecionado</h2>
+      <p class="detalhe-nome">Nenhum</p>
+      <p class="detalhe-poder"></p>
+      <p class="detalhe-texto">Clique em um avatar para ver os detalhes.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
