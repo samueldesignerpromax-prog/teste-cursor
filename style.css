@@ -1,0 +1,449 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cor-fundo: #090d1a;
+  --cor-card: #151b2f;
+  --cor-borda: #2b3554;
+  --cor-texto: #f5f5f5;
+  --cor-texto-suave: #b7bdd5;
+  --cor-energia: linear-gradient(90deg, #4bffb5, #fff176, #ff7043);
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #23345a 0, #090d1a 50%, #020308 100%);
+  color: var(--cor-texto);
+  min-height: 100vh;
+}
+
+/* TOPO */
+
+.topo {
+  padding: 24px;
+  text-align: center;
+}
+
+.topo h1 {
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.topo p {
+  margin-top: 8px;
+  color: var(--cor-texto-suave);
+}
+
+/* LAYOUT */
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto 40px;
+  padding: 0 16px 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(220px, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* GRID */
+
+.grid-guerreiros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+/* CARTA DO GUERREIRO */
+
+.guerreiro {
+  background: radial-gradient(circle at top, rgba(120, 120, 255, 0.18), transparent 70%),
+    var(--cor-card);
+  border-radius: 18px;
+  padding: 12px 12px 14px;
+  border: 1px solid var(--cor-borda);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+  transform-origin: center bottom;
+  animation: flutuar 4s ease-in-out infinite alternate;
+}
+
+.guerreiro:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: #ffd54f;
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.9),
+    0 0 24px rgba(255, 255, 255, 0.4);
+}
+
+.guerreiro.selecionado {
+  transform: translateY(-8px) scale(1.05);
+  border-color: #ffeb3b;
+}
+
+@keyframes flutuar {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-8px) scale(1.01);
+  }
+}
+
+/* AVATAR (DESENHO EM CSS) */
+
+.avatar {
+  position: relative;
+  height: 160px;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* CABEÇA */
+
+.cabeca {
+  position: relative;
+  width: 50px;
+  height: 40px;
+  border-radius: 26px 26px 20px 20px;
+  background: #f7e0c4;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  animation: respiracao 3.5s ease-in-out infinite;
+}
+
+.capacete {
+  position: absolute;
+  inset: -4px -4px 10px;
+  border-radius: 28px 28px 18px 18px;
+  background: linear-gradient(135deg, #e3e7f5, #9ea7c4, #fdfdfd);
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.6),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* CABELOS */
+
+.cabelo {
+  position: absolute;
+  left: -16px;
+  top: 4px;
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(120deg, #5c3b16, #c88a3b);
+  border-radius: 50% 0 60% 30%;
+  transform-origin: 100% 40%;
+  animation: vento 1.6s ease-in-out infinite alternate;
+  filter: drop-shadow(-2px 2px 2px rgba(0, 0, 0, 0.4));
+}
+
+.cabelo-longo {
+  height: 34px;
+  top: 6px;
+}
+
+.cabelo-tranca {
+  background: linear-gradient(120deg, #402016, #c8725f);
+}
+
+.cabelo-curto {
+  width: 22px;
+  height: 20px;
+}
+
+.cabelo-rabo {
+  left: 32px;
+  width: 22px;
+  height: 34px;
+  border-radius: 10% 60% 50% 70%;
+  transform-origin: 0 20%;
+}
+
+.cabelo-selvagem {
+  background: linear-gradient(120deg, #3a2810, #f1c36b);
+}
+
+/* ANIMAÇÕES CABELO & RESPIRAÇÃO */
+
+@keyframes vento {
+  0% {
+    transform: rotate(6deg) skewX(0deg);
+  }
+  50% {
+    transform: rotate(-2deg) skewX(3deg);
+  }
+  100% {
+    transform: rotate(-8deg) skewX(6deg);
+  }
+}
+
+@keyframes respiracao {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.04);
+  }
+}
+
+/* TRONCO / ARMADURA */
+
+.tronco {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  width: 68px;
+  height: 60px;
+  transform: translateX(-50%);
+  border-radius: 22px;
+  box-shadow:
+    0 6px 10px rgba(0, 0, 0, 0.8),
+    0 0 14px rgba(255, 255, 255, 0.4);
+  background-size: 200% 200%;
+  animation: brilho-armadura 5s ease-in-out infinite;
+}
+
+.armadura-pesada {
+  background-image: linear-gradient(135deg, #f6f7fb 0%, #a8b3d3 30%, #dde5ff 70%, #ffffff 100%);
+}
+
+.armadura-leve {
+  background-image: linear-gradient(135deg, #fdf4e8 0%, #f3cfa1 35%, #ffe0b5 70%, #ffffff 100%);
+}
+
+.armadura-couro {
+  background-image: linear-gradient(135deg, #4a2f1a 0%, #7a4a25 40%, #b6763a 80%, #f1cf9b 100%);
+}
+
+@keyframes brilho-armadura {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 60%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+/* BRAÇOS */
+
+.braco-esq,
+.braco-dir {
+  position: absolute;
+  top: 56px;
+  width: 16px;
+  height: 46px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #d7dde9, #9198b0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+  transform-origin: top center;
+}
+
+/* Braço normal */
+.braco-esq {
+  left: calc(50% - 38px);
+  transform: rotate(22deg);
+}
+
+/* Braço da espada - posição base */
+.braco-dir {
+  right: calc(50% - 38px);
+  transform: rotate(-20deg);
+}
+
+/* ESPADA (pseudo-elementos) */
+
+.braco-espada::before,
+.braco-espada::after {
+  content: "";
+  position: absolute;
+}
+
+/* Lâmina */
+.braco-espada::before {
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 72px;
+  border-radius: 6px 6px 2px 2px;
+  background: linear-gradient(180deg, #ffffff 0%, #c2d5ff 40%, #fefefe 70%, #9faacc 100%);
+  box-shadow:
+    0 0 12px rgba(190, 220, 255, 0.9),
+    0 0 22px rgba(255, 255, 255, 0.8);
+  animation: brilho-espada 1.8s ease-in-out infinite;
+}
+
+/* Guarda da espada */
+.braco-espada::after {
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 6px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #f0d36b, #fbeaaa, #f0d36b);
+  box-shadow: 0 0 8px rgba(255, 215, 130, 0.9);
+}
+
+@keyframes brilho-espada {
+  0%,
+  100% {
+    box-shadow:
+      0 0 8px rgba(190, 220, 255, 0.7),
+      0 0 16px rgba(255, 255, 255, 0.6);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow:
+      0 0 18px rgba(190, 220, 255, 1),
+      0 0 28px rgba(255, 255, 255, 0.95);
+    filter: brightness(1.25);
+  }
+}
+
+/* PERNAS */
+
+.pernas {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  width: 42px;
+  height: 38px;
+  transform: translateX(-50%);
+  border-radius: 18px 18px 10px 10px;
+  background: linear-gradient(180deg, #a9b3c4, #5c606d);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* LEVANTAR ESPADA AO PASSAR O MOUSE */
+
+.guerreiro:hover .braco-dir {
+  animation: levantar-espada 0.3s ease-out forwards;
+}
+
+.guerreiro:not(:hover) .braco-dir {
+  animation: descer-espada 0.4s ease-out forwards;
+}
+
+@keyframes levantar-espada {
+  from {
+    transform: rotate(-20deg);
+  }
+  to {
+    transform: rotate(-70deg);
+  }
+}
+
+@keyframes descer-espada {
+  from {
+    transform: rotate(-70deg);
+  }
+  to {
+    transform: rotate(-20deg);
+  }
+}
+
+/* INFORMAÇÕES */
+
+.info h2 {
+  font-size: 1rem;
+}
+
+.info p {
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+}
+
+.nivel {
+  margin-top: 4px;
+  font-size: 0.8rem;
+}
+
+/* BARRA DE ENERGIA */
+
+.barra-energia {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 999px;
+  margin-top: 4px;
+  overflow: hidden;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.9);
+}
+
+.preenchimento {
+  --energia: 50;
+  width: calc(var(--energia) * 1%);
+  height: 100%;
+  border-radius: 999px;
+  background: var(--cor-energia);
+  background-size: 200% 200%;
+  animation: fluxo-energia 2s linear infinite;
+  box-shadow:
+    0 0 10px rgba(245, 255, 185, 0.9),
+    0 0 20px rgba(255, 124, 70, 0.7);
+}
+
+@keyframes fluxo-energia {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* PAINEL DE DETALHES */
+
+.detalhes {
+  background: rgba(9, 12, 26, 0.96);
+  border-radius: 18px;
+  border: 1px solid var(--cor-borda);
+  padding: 14px 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+}
+
+.detalhes h2 {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.detalhe-nome {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.detalhe-poder {
+  font-size: 0.9rem;
+  color: #ffeb3b;
+  margin-bottom: 6px;
+}
+
+.detalhe-texto {
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+}
